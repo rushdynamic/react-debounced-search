@@ -12,12 +12,14 @@ const getAllBooks = () => {
 	return booksList;
 };
 
-const getBook = (bookName: string) => {
-	console.log('Searching for: ' + bookName);
-	const results = booksList.filter((book: any) =>
-		book.Title.toLowerCase().includes(bookName)
+const getBook = (query: string) => {
+	console.log('Searching for: ' + query);
+	const results = booksList.filter(
+		(book: any) =>
+			book.Title.toLowerCase().includes(query) ||
+			book.Author.toLowerCase().includes(query)
 	);
-	console.log(`Found ${results.length} results for ${bookName}`);
+	console.log(`Found ${results.length} results for ${query}`);
 	return results;
 };
 
