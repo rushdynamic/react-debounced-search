@@ -1,16 +1,9 @@
 import { useEffect, useState } from 'react';
-
-interface book {
-	Title: string;
-	Author: string;
-	Genre: string;
-	Publisher: string;
-	Height: number;
-}
+import { book } from '../types/book';
 
 const useBooks = () => {
 	const [query, setQuery] = useState<string>('');
-	const [books, setBooks] = useState<book[]>();
+	const [books, setBooks] = useState<book[]>([]);
 
 	const fetchBooks = async () => {
 		const response = await fetch(`http://localhost:3030/search/${query}`);
